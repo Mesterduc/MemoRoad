@@ -1,11 +1,17 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "../views/Home.vue";
+import Layout from "../layouts/BaseNavbar.vue";
+import Layout2 from "../layouts/BaseNavbar2.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "Home",
     component: Home,
+    meta: { 
+      navbar: Layout, 
+      footer: Layout2
+    }
   },
   {
     path: "/about",
@@ -15,7 +21,12 @@ const routes: Array<RouteRecordRaw> = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
+    meta: { 
+      navbar: Layout2, 
+      footer: Layout
+    }
   },
+  
 ];
 
 const router = createRouter({

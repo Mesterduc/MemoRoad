@@ -1,11 +1,9 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view />
+	<component :is="this.$route.meta.navbar || 'div'"></component>
+		<router-view />
+  <component :is="this.$route.meta.footer || 'div'"></component>
+	
 </template>
 
 <style lang="scss">
-
 </style>
