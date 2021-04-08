@@ -1,0 +1,18 @@
+{
+    "version": 3,
+    "mappings": "AGAA,AAAA,CAAC,CAAA;EACC,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,CAAC;EACV,SAAS,EAAE,IAAI;EACf,WAAW,EAAE,GAAG;EAChB,WAAW,EAAE,qBAAqB;EAClC,KAAK,EDLM,IAAI;ECMf,SAAS,EAAE,IAAI;CAGhB;;AAED,AAAA,CAAC,CAAA;EACC,eAAe,EAAE,IAAI;CACtB;;AAED,AAAA,QAAQ,AAAA,MAAM,EAAE,KAAK,AAAA,MAAM,CAAA;EACzB,OAAO,EAAE,IAAI;CACd;;AMlBD,AAAA,MAAM,CAAA;EACJ,KAAK,EAAE,GAAG;CACX;;AACD,AAAA,MAAM,CAAA;EACJ,KAAK,EAAE,MAAM;CACd",
+    "sources": [
+        "index.scss",
+        "components/general/__general.scss",
+        "components/general/_color.scss",
+        "components/general/_standart.scss",
+        "components/utility/__utility.scss",
+        "components/utility/_buttons.scss",
+        "components/utility/_text.scss",
+        "components/footer/_footer.scss",
+        "views/__views.scss",
+        "views/_home.scss"
+    ],
+    "names": [],
+    "file": "index.css"
+}

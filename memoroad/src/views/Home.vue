@@ -1,8 +1,9 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
-    <h1>asd</h1>
+    <h1 id="hello">as1asd</h1>
   </div>
+  <h1 class="hello">as1asd</h1>
 </template>
 
 <script lang="ts">
