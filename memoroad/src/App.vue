@@ -1,7 +1,7 @@
 <template>
-	<component :is="this.$route.meta.navbar || 'div'"></component>
+	<component :is="$route.meta.navbar"></component>
 		<router-view />
-  <component :is="this.$route.meta.footer || 'div'"></component>
+  <component :is="$route.meta.footer"></component>
 	
 </template>
 
