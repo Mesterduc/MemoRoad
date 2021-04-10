@@ -5,13 +5,16 @@
   font-weight: 600;
   font-family: 'Poppins', sans-serif;
   color: $text-color;
+  background-color: rgba(32, 33, 36, 1);
   max-width: 100%;
   
-
 }
 
 a{
   text-decoration: none;
+}
+body{
+  margin: 30px 120px 0 120px;
 }
 
 textarea:focus, input:focus{

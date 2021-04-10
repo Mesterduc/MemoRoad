@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 
 // Layout
-import Layout from "../layout/Navbar.vue";
+import Layout from "../layout/TheNavbar.vue";
 // import Layout2 from "../layouts/BaseNavbar2.vue";
 
 // Router Modules
