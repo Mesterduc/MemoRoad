@@ -5,7 +5,7 @@ import Layout from "../layout/TheNavbar.vue";
 // import Layout2 from "../layouts/BaseNavbar2.vue";
 
 // Router Modules
-import Home from "../views/Home.vue";
+import Home from "../views/Home/Home.vue";
 
 
 
