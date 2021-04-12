@@ -1,22 +1,29 @@
-*{
-  margin: 0;
-  padding: 0;
+
+html{
+  font-size: 62.5%;
   font-size: 16px;
-  font-weight: 600;
-  font-family: 'Poppins', sans-serif;
-  color: $text-color;
+  line-height: 1.15;
+
   background-color: rgba(32, 33, 36, 1);
-  max-width: 100%;
-  
+}
+
+body{
+  font-family: 'Poppins', sans-serif;
 }
 
 a{
   text-decoration: none;
 }
-body{
-  margin: 30px 120px 0 120px;
-}
 
 textarea:focus, input:focus{
   outline: none;
 }
+
+@media (max-width: 480px) {
+  body{
+    // width: ;
+  }
+  
+}
+
+

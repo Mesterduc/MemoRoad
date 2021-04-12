@@ -25,7 +25,7 @@
 		width: 100%;
 
 		&__link {
-			margin-left: 35px;
+			margin-left: 40px;
 		}
 	}
 }
