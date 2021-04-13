@@ -19,14 +19,13 @@ a{
   color: $text-color;
 }
 
-textarea:focus, input:focus{
+textarea:focus, input:focus, button:focus{
   outline: none;
 }
 
 @media (max-width: 480px) {
-  body{
-    // width: ;
-  }
+  // body{
+  // }
   
 }
 
