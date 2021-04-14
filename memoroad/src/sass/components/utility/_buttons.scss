@@ -21,3 +21,11 @@
   margin: 5px;
   font-size: 16px;
 }
+@mixin form-input2 {
+
+  margin-bottom: 10px;
+  width: 100%;
+  border-radius: 5px;
+  height: 40px;
+  border: 2px solid #e0e0e0;
+}

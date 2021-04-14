@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "AGAA,AAAA,CAAC,CAAA;EACC,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,CAAC;EACV,SAAS,EAAE,IAAI;EACf,WAAW,EAAE,GAAG;EAChB,WAAW,EAAE,qBAAqB;EAClC,KAAK,EDLM,IAAI;ECMf,SAAS,EAAE,IAAI;CAGhB;;AAED,AAAA,CAAC,CAAA;EACC,eAAe,EAAE,IAAI;CACtB;;AAED,AAAA,QAAQ,AAAA,MAAM,EAAE,KAAK,AAAA,MAAM,CAAA;EACzB,OAAO,EAAE,IAAI;CACd;;AMlBD,AAAA,MAAM,CAAA;EACJ,KAAK,EAAE,KAAK;CACb;;AACD,AAAA,MAAM,CAAA;EACJ,KAAK,EAAE,KAAK;CACb",
+    "mappings": "AGAA,AAAA,CAAC,CAAA;EACC,UAAU,EAAE,UAAU;CACvB;;AAED,AAAA,IAAI,CAAA;EACF,SAAS,EAAE,KAAK;EAChB,WAAW,EAAE,IAAI;CAGlB;;AAED,AAAA,IAAI,CAAA;EACF,WAAW,EAAE,qBAAqB;EAClC,MAAM,EAAE,CAAC;EACT,SAAS,EAAE,MAAM;CAClB;;AAED,AAAA,CAAC,CAAA;EACC,eAAe,EAAE,IAAI;EACrB,KAAK,EDlBM,IAAI;CCmBhB;;AAED,AAAA,QAAQ,AAAA,MAAM,EAAE,KAAK,AAAA,MAAM,EAAE,MAAM,AAAA,MAAM,CAAA;EACvC,OAAO,EAAE,IAAI;CACd",
     "sources": [
         "index.scss",
         "components/general/__general.scss",
@@ -9,9 +9,7 @@
         "components/utility/__utility.scss",
         "components/utility/_buttons.scss",
         "components/utility/_text.scss",
-        "components/footer/_footer.scss",
-        "views/__views.scss",
-        "views/_home.scss"
+        "components/utility/_input.scss"
     ],
     "names": [],
     "file": "index.css"

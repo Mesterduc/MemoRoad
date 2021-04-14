@@ -1,60 +1,61 @@
 <template>
-	<div class="home">
+	<main class="home">
 		<img alt="Vue logo" src="../../assets/logo.png" />
 		<h1 id="hello">as1asd</h1>
-	</div>
-	<p class="hello">as1asd</p>
-  <p class="hello">as1asd</p>
-	<p class="hello">as1asd</p>
-  <p class="hello">as1asd</p>
-	<p class="hello">as1asd</p>
-  <p class="hello">as1asd</p>
-	<p class="hello">as1asd</p>
-  <p class="hello">as1asd</p>
-	<p class="hello">as1asd</p>
-  <p class="hello">as1asd</p>
-	<p class="hello">as1asd</p>
-  <p class="hello">as1asd</p>
-	<p class="hello">as1asd</p>
-  <p class="hello">as1asd</p>
-	<p class="hello">as1asd</p>
-  <p class="hello">as1asd</p>
-	<p class="hello">as1asd</p>
-  <p class="hello">as1asd</p>
-	<p class="hello">as1asd</p>
-  <p class="hello">as1asd</p>
-	<p class="hello">as1asd</p>
-  <p class="hello">as1asd</p>
-	<p class="hello">as1asd</p>
-  <p class="hello">as1asd</p>
-	<p class="hello">as1asd</p>
-  <p class="hello">as1asd</p>
-	<p class="hello">as1asd</p>
-  <p class="hello">as1asd</p>
-	<p class="hello">as1asd</p>
-  <p class="hello">as1asd</p>
-	<p class="hello">as1asd</p>
-  <p class="hello">as1asd</p>
-	<p class="hello">as1asd</p>
-  <p class="hello">as1asd</p>
-	<p class="hello">as1asd</p>
-  <p class="hello">as1asd</p>
-	<p class="hello">as1asd</p>
-  <p class="hello">as1asd</p>
-	<p class="hello">as1asd</p>
-  <p class="hello">as1asd</p>
-	<p class="hello">as1asd</p>
-  <p class="hello">as1asd</p>
-	<p class="hello">as1asd</p>
-  <p class="hello">as1asd</p>
-	<p class="hello">as1asd</p>
-  <p class="hello">as1asd</p>
-	<p class="hello">as1asd</p>
-  <p class="hello">as1asd</p>
-	<p class="hello">as1asd</p>
-  <p class="hello">as1asd</p>
-	<p class="hello">as1asd</p>
-  <p class="hello">as1asd</p>
+
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+		<p class="hello">as1asd</p>
+	</main>
 </template>
 
 <script lang="ts">
@@ -64,7 +65,7 @@ import { defineComponent } from 'vue'
 // import LoginModal from './components/LoginModal.vue'
 
 export default defineComponent({
-  name: "Home",
+	name: 'Home',
 	components: {
 		// LoginModal,
 	},

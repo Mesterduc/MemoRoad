@@ -1,9 +1,9 @@
 <template>
+<login-modal v-if="showModal" @sendtest="sendtest" />
 	<section id="nav">
 		<nav class="nav">
-			
 			<router-link class="nav__logo-container" to="/">
-				<img class="nav__logo" src="../../assets/MemoRoadLogo.svg" alt="logo" />
+				<img class="nav__logo" src="@/assets/MemoRoadLogo.svg" alt="logo" />
 			</router-link>
 
 			<div class="nav__link-container">
@@ -14,7 +14,7 @@
 			</div>
 		</nav>
 	</section>
-	<login-modal v-if="showModal" @sendtest="sendtest" />
+	
 </template>
 
 <script lang="ts">
