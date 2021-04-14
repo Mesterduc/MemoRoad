@@ -3,11 +3,12 @@
 	<section class="modal-background" @click="sendtest"></section>
 	<article class="form">
 		<img class="form__logo" src="@/assets/MemoRoadLogo.svg" alt="logo" />
+		<fa @click="sendtest" class="close-icon" icon="times"/>
 		<div class="form__container">
 			<label for="email" class="form__label">Email address</label>
-			<input type="email" name="email" id="" class="form__input form__email" placeholder="Email address" />
+			<input type="email" name="email" id="email" class="form__input form__email" placeholder="Email address" />
 			<label for="password" class="form__label">Password</label>
-			<input type="password" name="password" id="" class="form__input form__password" placeholder="Password" />
+			<input type="password" name="password" id="password" class="form__input form__password" placeholder="Password" />
 			<article class="test">
 				<router-link class="tests" to="/">Forgot you password?</router-link>
 				<router-link class="tests" to="/about">Create a free account</router-link>
@@ -93,6 +94,20 @@ export default defineComponent({
 		height: 55px;
 		margin: 0 auto 0 auto;
 		display: block;
+		&:hover{
+		background: $hover-button;
+	}
+	}
+}
+
+.close-icon{
+	position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 2rem;
+
+	&:hover{
+		color: $blur-text-color;
 	}
 }
 
@@ -104,5 +119,7 @@ export default defineComponent({
 }
 .tests {
 	color: $blur-text-color;
+
+	
 }
 </style>

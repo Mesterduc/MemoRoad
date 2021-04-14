@@ -10,6 +10,7 @@
 				<router-link class="nav__link" to="/">Home</router-link>
 				<router-link class="nav__link" to="/about">Albums</router-link>
 				<!-- <router-link class="nav__link" to="/about">Sign In</router-link> -->
+				
 				<button type="button" class="nav__link--logo" @click="showModal = !showModal">Sign In</button>
 			</div>
 		</nav>
@@ -67,7 +68,7 @@ export default defineComponent({
 				@include button-login;
 				margin-left: 40px;
 				&:hover {
-					background: #333;
+					background: $hover-button;
 				}
 			}
 		}
