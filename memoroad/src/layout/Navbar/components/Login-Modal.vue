@@ -9,8 +9,8 @@
 			<label for="password" class="form__label">Password</label>
 			<input type="password" name="password" id="" class="form__input form__password" placeholder="Password" />
 			<article class="test">
-				<router-link class="test2" to="/">Forgot you password?</router-link>
-				<router-link class="test2" to="/">Create a free account</router-link>
+				<router-link class="tests" to="/">Forgot you password?</router-link>
+				<router-link class="tests" to="/about">Create a free account</router-link>
 			</article>
 			<button type="submit" class="form__button form__button--submit">Log in</button>
 		</div>
@@ -94,5 +94,15 @@ export default defineComponent({
 		margin: 0 auto 0 auto;
 		display: block;
 	}
+}
+
+.test {
+	display: flex;
+	justify-content: space-between;
+	margin: 5px 0 10px 0;
+
+}
+.tests {
+	color: $blur-text-color;
 }
 </style>
