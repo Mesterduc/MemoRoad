@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, watch } from 'vue'
 import LoginModal from './components/Login-Modal.vue'
 
 export default defineComponent({
@@ -32,6 +32,13 @@ export default defineComponent({
 		function sendtest() {
 			showModal.value = false
 		}
+		watch(showModal, (cur, old) => {
+			document.body.style.overflow = ""
+			if(cur){
+				document.body.style.overflow = "hidden"
+			}
+		})
+		
 
 		return { showModal, sendtest }
 	},

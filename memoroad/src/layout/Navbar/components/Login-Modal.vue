@@ -30,6 +30,7 @@ export default defineComponent({
 	setup(props, context) {
 		function sendtest() {
 			context.emit('sendtest')
+			
 		}
 		return { sendtest }
 	},
@@ -41,18 +42,19 @@ export default defineComponent({
 @import '@/sass/components//utility/__utility.scss';
 
 .modal-background {
-	position: absolute;
+	position: fixed;
 	background: rgba(0, 0, 0, 0.6);
 	width: 100%;
 	height: 100vh;
 	top: 0;
 	left: 0;
+	overflow: hidden;
 }
 .form {
+	position: fixed;
 	width: 50vh;
 	height: 50vh;
 	background: white;
-	position: absolute;
 	top: 45%;
 	left: 50%;
 	transform: translate(-50%, -50%);
