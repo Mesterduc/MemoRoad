@@ -4,10 +4,14 @@
 	<article class="form">
 		<img class="form__logo" src="@/assets/MemoRoadLogo.svg" alt="logo" />
 		<div class="form__container">
-			<label for="email" class="form__label">E-mail address</label>
-			<input type="email" name="email" id="" class="form__input form__email" />
+			<label for="email" class="form__label">Email address</label>
+			<input type="email" name="email" id="" class="form__input form__email" placeholder="Email address" />
 			<label for="password" class="form__label">Password</label>
-			<input type="password" name="password" id="" class="form__input form__password" />
+			<input type="password" name="password" id="" class="form__input form__password" placeholder="Password" />
+			<article class="test">
+				<router-link class="test2" to="/">Forgot you password?</router-link>
+				<router-link class="test2" to="/">Create a free account</router-link>
+			</article>
 			<button type="submit" class="form__button form__button--submit">Log in</button>
 		</div>
 	</article>
@@ -32,6 +36,9 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+// @import '@/sass/components/_input';
+@import '@/sass/components//utility/__utility.scss';
+
 .modal-background {
 	position: absolute;
 	background: rgba(0, 0, 0, 0.6);
@@ -65,13 +72,11 @@ export default defineComponent({
 
 	&__input {
 		@include form-input;
-		// margin-bottom: 10px;
-		// width: 100%;
-		// border-radius: 5px;
-		// height: 40px;
-		// border: 2px solid #e0e0e0;
+		padding-left: 15px;
+		font-size: 18px;
 	}
 	&__email {
+		
 	}
 	&__password {
 	}
@@ -79,10 +84,14 @@ export default defineComponent({
 	&__label {
 		display: block;
 		font-weight: 600;
-		// margin: 5px 0 5px 0;
+		font-size: 2rem;
 	}
 
 	&__button {
+		@include button-login;
+		width: 65%;
+		height: 55px;
+		margin: 0 auto 0 auto;
 		display: block;
 	}
 }

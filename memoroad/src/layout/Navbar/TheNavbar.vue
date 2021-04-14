@@ -1,5 +1,5 @@
 <template>
-<login-modal v-if="showModal" @sendtest="sendtest" />
+	<login-modal v-if="showModal" @sendtest="sendtest" />
 	<section id="nav">
 		<nav class="nav">
 			<router-link class="nav__logo-container" to="/">
@@ -14,7 +14,6 @@
 			</div>
 		</nav>
 	</section>
-	
 </template>
 
 <script lang="ts">
@@ -24,12 +23,12 @@ import LoginModal from './components/Login-Modal.vue'
 export default defineComponent({
 	name: 'TheNavbar',
 	components: {
-		LoginModal
+		LoginModal,
 	},
 	setup(context) {
 		const showModal = ref(false)
 
-		function sendtest(){
+		function sendtest() {
 			showModal.value = false
 		}
 
@@ -39,6 +38,8 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+@import '@/sass/components//utility/__utility.scss';
+
 #nav {
 	display: flex;
 	height: 60px;
@@ -63,15 +64,8 @@ export default defineComponent({
 			font-size: 1.6rem;
 
 			&--logo {
-				border: none;
-				background: black;
-				font-size: 1.6rem;
-				font-weight: 600;
+				@include button-login;
 				margin-left: 40px;
-				color: white;
-				padding: 5px 20px;
-				border-radius: 10px;
-
 				&:hover {
 					background: #333;
 				}
