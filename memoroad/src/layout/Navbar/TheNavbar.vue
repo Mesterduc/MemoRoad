@@ -1,5 +1,7 @@
 <template>
-	<login-modal v-if="showModal" @sendtest="sendtest" />
+	<modal-sign-in v-if="showModal" @sendtest="sendtest" />
+	<modal-forgot-password />
+	<modal-create-account />
 	<section id="nav">
 		<nav class="nav">
 			<router-link class="nav__logo-container" to="/">
@@ -10,7 +12,7 @@
 				<router-link class="nav__link" to="/">Home</router-link>
 				<router-link class="nav__link" to="/about">Albums</router-link>
 				<!-- <router-link class="nav__link" to="/about">Sign In</router-link> -->
-				
+
 				<button type="button" class="nav__link--logo" @click="showModal = !showModal">Sign In</button>
 			</div>
 		</nav>
@@ -19,12 +21,16 @@
 
 <script lang="ts">
 import { defineComponent, ref, watch } from 'vue'
-import LoginModal from './components/Login-Modal.vue'
+import ModalCreateAccount from './components/ModalCreateAccount.vue'
+import ModalForgotPassword from './components/ModalForgotPassword.vue'
+import ModalSignIn from './components/ModalSignIn.vue'
 
 export default defineComponent({
 	name: 'TheNavbar',
 	components: {
-		LoginModal,
+		ModalSignIn,
+		ModalForgotPassword,
+		ModalCreateAccount,
 	},
 	setup(context) {
 		const showModal = ref(false)
@@ -33,12 +39,11 @@ export default defineComponent({
 			showModal.value = false
 		}
 		watch(showModal, (cur, old) => {
-			document.body.style.overflow = ""
-			if(cur){
-				document.body.style.overflow = "hidden"
+			document.body.style.overflow = ''
+			if (cur) {
+				document.body.style.overflow = 'hidden'
 			}
 		})
-		
 
 		return { showModal, sendtest }
 	},
@@ -65,6 +70,12 @@ export default defineComponent({
 			width: 1000px;
 			justify-content: flex-end;
 			align-items: center;
+
+			@media screen and (max-width: map-get( $breakpoints, medium)) {
+				&{
+					display: none;
+				}
+			}
 		}
 		&__link {
 			margin-left: 40px;
