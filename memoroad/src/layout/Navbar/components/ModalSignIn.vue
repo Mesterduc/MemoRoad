@@ -23,6 +23,7 @@
 				<router-link class="tests" to="/about">Create a free account</router-link>
 			</article>
 			<button type="submit" class="form__button form__button--submit">Sign in</button>
+			
 		</div>
 	</article>
 	<!-- </teleport> -->

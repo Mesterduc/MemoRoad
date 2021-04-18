@@ -15,12 +15,16 @@
 
 				<button type="button" class="nav__link--logo" @click="showModal = !showModal">Sign In</button>
 			</div>
+
+			<nav class="nav__burgermenu" @click="updateTest" >
+				
+			</nav>
 		</nav>
 	</section>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, watch } from 'vue'
+import { computed, defineComponent, ref, watch } from 'vue'
 import ModalCreateAccount from './components/ModalCreateAccount.vue'
 import ModalForgotPassword from './components/ModalForgotPassword.vue'
 import ModalSignIn from './components/ModalSignIn.vue'
@@ -45,7 +49,7 @@ export default defineComponent({
 			}
 		})
 
-		return { showModal, sendtest }
+		return { showModal, sendtest, }
 	},
 })
 </script>
@@ -63,7 +67,13 @@ export default defineComponent({
 		align-items: center;
 		margin: 0 auto;
 		// changes the width of the navbar
-		max-width: min(100% - 10rem);
+		max-width: min(100% - 15rem);
+		@media screen and (max-width: map-get($breakpoints, medium )) {
+			& {
+				width: 100%;
+				justify-content: space-between;
+			}
+		}
 
 		&__link-container {
 			display: flex;
@@ -72,7 +82,7 @@ export default defineComponent({
 			align-items: center;
 
 			@media screen and (max-width: map-get( $breakpoints, medium)) {
-				&{
+				& {
 					display: none;
 				}
 			}
@@ -97,6 +107,15 @@ export default defineComponent({
 			align-items: center;
 		}
 		&__logo {
+		}
+		&__burgermenu {
+			display: none;
+
+			@media screen and (max-width: map-get($breakpoints, medium )) {
+				& {
+					display: block;
+				}
+			}
 		}
 	}
 }
