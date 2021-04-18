@@ -16,7 +16,7 @@
 				<button type="button" class="nav__link--logo" @click="showModal = !showModal">Sign In</button>
 			</div>
 
-			<nav class="nav__burgermenu" @click="updateTest" >
+			<nav class="nav__burgermenu" >
 				
 			</nav>
 		</nav>
