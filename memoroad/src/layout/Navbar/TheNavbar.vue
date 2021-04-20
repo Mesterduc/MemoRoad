@@ -1,7 +1,6 @@
 <template>
-	<modal-sign-in v-if="showModal" @sendtest="sendtest" />
-	<modal-forgot-password />
-	<modal-create-account />
+	<index-modal :showModal="showModal" @closeModal="closeModal" />
+	
 	<section id="nav">
 		<nav class="nav">
 			<router-link class="nav__logo-container" to="/">
@@ -12,7 +11,6 @@
 				<router-link class="nav__link" to="/">Home</router-link>
 				<router-link class="nav__link" to="/about">Albums</router-link>
 				<!-- <router-link class="nav__link" to="/about">Sign In</router-link> -->
-
 				<button type="button" class="nav__link--logo" @click="showModal = !showModal">Sign In</button>
 			</div>
 
@@ -25,22 +23,21 @@
 
 <script lang="ts">
 import { computed, defineComponent, ref, watch } from 'vue'
-import ModalCreateAccount from './components/ModalCreateAccount.vue'
-import ModalForgotPassword from './components/ModalForgotPassword.vue'
-import ModalSignIn from './components/ModalSignIn.vue'
+
+// import ModalSignIn from './components/ModalSignIn.vue'
+import IndexModal from './components/ModalAccount/IndexModal.vue'
 
 export default defineComponent({
 	name: 'TheNavbar',
 	components: {
-		ModalSignIn,
-		ModalForgotPassword,
-		ModalCreateAccount,
+		IndexModal,
+		
 	},
 	setup(context) {
 		const showModal = ref(false)
 
-		function sendtest() {
-			showModal.value = false
+		function closeModal() {
+			showModal.value = !showModal.value
 		}
 		watch(showModal, (cur, old) => {
 			document.body.style.overflow = ''
@@ -49,7 +46,7 @@ export default defineComponent({
 			}
 		})
 
-		return { showModal, sendtest, }
+		return { showModal, closeModal, }
 	},
 })
 </script>
