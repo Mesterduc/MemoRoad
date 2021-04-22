@@ -13,10 +13,10 @@
 				<!-- <router-link class="nav__link" to="/about">Sign In</router-link> -->
 				<button type="button" class="nav__link--logo" @click="showModal = !showModal">Sign In</button>
 			</div>
-
-			<nav class="nav__burgermenu" >
+			<!-- Make burger menu her -->
+			<!-- <nav class="nav__burgermenu" >
 				
-			</nav>
+			</nav> -->
 		</nav>
 	</section>
 </template>
@@ -58,6 +58,9 @@ export default defineComponent({
 	display: flex;
 	height: 60px;
 	border-bottom: #bababa 1px solid;
+	position: sticky;
+	top: 0;
+	background-color: white;
 
 	.nav {
 		display: flex;

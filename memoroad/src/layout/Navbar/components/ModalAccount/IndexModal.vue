@@ -37,16 +37,19 @@ export default defineComponent({
 	},
 	emits: ['closeModal'],
 	setup(props, context) {
+
+		//close the modal
+		function closeModal() {
+			context.emit('closeModal')
+		}
+
+		//change modal to create account or forgot password
 		const modal = reactive({
 			signIn: true,
 			createAccount: false,
 			forgotPassword: false
 		})
-		let { showModal } = toRefs(props)
-		function closeModal() {
-			context.emit('closeModal')
-		}
-		//change modal for create account or forgot password
+		
 		function changeModal(modalPage: String) {
 			if (modalPage === 'account') {
 				modal.signIn = false
@@ -82,8 +85,10 @@ export default defineComponent({
 	top: 0;
 	left: 0;
 	overflow: hidden;
+	z-index: 1;
 }
 .form {
+	z-index: 1;
 	position: fixed;
 	width: 40vw;
 	max-width: 550px;

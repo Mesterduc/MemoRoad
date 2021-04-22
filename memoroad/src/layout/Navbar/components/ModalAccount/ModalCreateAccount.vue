@@ -1,9 +1,7 @@
 <template>
 	<div class="form__container">
-        <!-- <label for="email" class="form__label">Email address</label> -->
-		<input type="email" name="email" id="email" class="form__input form__email" placeholder="Fullname" />
-		<!-- <label for="password" class="form__label">Password</label> -->
-		<input type="email" name="email" id="email" class="form__input form__email" placeholder="Email address" />
+		<input type="text" for="username" name="username" id="username" class="form__input" placeholder="Username" />
+		<input type="email" name="email" id="email" class="form__input" placeholder="Email address" />
         <input
 			type="password"
 			name="password"
@@ -11,17 +9,14 @@
 			class="form__input form__password"
 			placeholder="Password"
 		/>
-        <!-- <label for="email" class="form__label">Email address</label> -->
-		
-		<!-- <label for="password" class="form__label">Password</label> -->
 		<input
 			type="password"
-			name="password"
-			id="password"
+			name="ConfirmPassword"
+			id="ConfirmPassword"
 			class="form__input form__password"
 			placeholder="Confirm Password"
 		/>
-        <button type="submit" class="form__button form__button--submit">Sign in</button>
+        <button type="submit" class="form__button form__button--submit">Sign Up</button>
     </div>
 </template>
 <script lang="ts">
