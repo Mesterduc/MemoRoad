@@ -37,19 +37,21 @@ export default defineComponent({
 	},
 	emits: ['closeModal'],
 	setup(props, context) {
-
 		//close the modal
 		function closeModal() {
 			context.emit('closeModal')
+			modal.signIn = true
+			modal.createAccount = false
+			modal.forgotPassword = false
 		}
 
 		//change modal to create account or forgot password
 		const modal = reactive({
 			signIn: true,
 			createAccount: false,
-			forgotPassword: false
+			forgotPassword: false,
 		})
-		
+
 		function changeModal(modalPage: String) {
 			if (modalPage === 'account') {
 				modal.signIn = false
