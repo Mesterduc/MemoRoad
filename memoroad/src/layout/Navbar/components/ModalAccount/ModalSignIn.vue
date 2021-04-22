@@ -73,7 +73,7 @@ export default defineComponent({
 	}
 
 	&__button {
-		@include button-login;
+		@include button-signIn;
 		width: 65%;
 		height: 55px;
 		margin: 0 auto 1rem auto;

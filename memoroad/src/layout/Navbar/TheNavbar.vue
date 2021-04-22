@@ -1,6 +1,6 @@
 <template>
 	<index-modal :showModal="showModal" @closeModal="closeModal" />
-	
+
 	<section id="nav">
 		<nav class="nav">
 			<router-link class="nav__logo-container" to="/">
@@ -10,8 +10,9 @@
 			<div class="nav__link-container">
 				<router-link class="nav__link" to="/">Home</router-link>
 				<router-link class="nav__link" to="/about">Albums</router-link>
-				<!-- <router-link class="nav__link" to="/about">Sign In</router-link> -->
-				<button type="button" class="nav__link--logo" @click="showModal = !showModal">Sign In</button>
+
+				<button type="button" v-if="loggedIn" class="nav__link--signIn">Sign out</button>
+				<button type="button" v-else class="nav__link--signIn" @click="showModal = !showModal">Sign In</button>
 			</div>
 			<!-- Make burger menu her -->
 			<!-- <nav class="nav__burgermenu" >
@@ -22,18 +23,14 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, ref, watch } from 'vue'
-
-// import ModalSignIn from './components/ModalSignIn.vue'
+import { computed, defineComponent, ref, watch, defineAsyncComponent } from 'vue'
 import IndexModal from './components/ModalAccount/IndexModal.vue'
 
 export default defineComponent({
 	name: 'TheNavbar',
-	components: {
-		IndexModal,
-		
-	},
-	setup(context) {
+
+	  setup(context) {
+		// Sign in, create account and forgot password modal
 		const showModal = ref(false)
 
 		function closeModal() {
@@ -46,7 +43,13 @@ export default defineComponent({
 			}
 		})
 
-		return { showModal, closeModal, }
+		// Is user logged in TODO...
+		const loggedIn = ref(false)
+
+		return { showModal, closeModal, loggedIn }
+	},
+	components: {
+		IndexModal
 	},
 })
 </script>
@@ -92,8 +95,8 @@ export default defineComponent({
 			font-weight: 700;
 			font-size: 1.6rem;
 
-			&--logo {
-				@include button-login;
+			&--signIn {
+				@include button-signIn;
 				margin-left: 40px;
 				&:hover {
 					background: $hover-button;

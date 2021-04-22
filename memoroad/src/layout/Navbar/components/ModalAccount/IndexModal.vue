@@ -10,25 +10,29 @@
 				<img class="form__back-icon-inner" src="@/assets/icon/backarrow.svg" @click="changeModal" />
 			</article>
 
-			<modal-sign-in v-if="signIn" @forgotPassword="changeModal" @createAccount="changeModal" />
-			<modal-create-account v-if="createAccount" />
-			<modal-forgot-password v-if="forgotPassword" />
+			<async-modal-sign-in v-if="signIn" @forgotPassword="changeModal" @createAccount="changeModal" />
+			<async-modal-create-account v-if="createAccount" />
+			<async-modal-forgot-password v-if="forgotPassword" />
 		</article>
 	</div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, watch, toRefs, reactive } from 'vue'
-import ModalSignIn from './ModalSignIn.vue'
-import ModalCreateAccount from './ModalCreateAccount.vue'
-import ModalForgotPassword from './ModalForgotPassword.vue'
+import { defineComponent, ref, toRefs, reactive, defineAsyncComponent } from 'vue'
+const AsyncModalSignIn = defineAsyncComponent(() => import('./ModalSignIn.vue' /* webpackChunkName: "SignIn" */))
+const AsyncModalCreateAccount = defineAsyncComponent(
+	() => import('./ModalCreateAccount.vue' /* webpackChunkName: "CreateAccount" */)
+)
+const AsyncModalForgotPassword = defineAsyncComponent(
+	() => import('./ModalForgotPassword.vue' /* webpackChunkName: "ForgotPassword" */)
+)
 
 export default defineComponent({
 	name: 'Index-Modal',
 	components: {
-		ModalSignIn,
-		ModalForgotPassword,
-		ModalCreateAccount,
+		AsyncModalSignIn,
+		AsyncModalCreateAccount,
+		AsyncModalForgotPassword,
 	},
 	props: {
 		showModal: {
