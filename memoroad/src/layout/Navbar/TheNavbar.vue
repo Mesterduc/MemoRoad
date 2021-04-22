@@ -83,6 +83,7 @@ export default defineComponent({
 			width: 1000px;
 			justify-content: flex-end;
 			align-items: center;
+			
 
 			@media screen and (max-width: map-get( $breakpoints, medium)) {
 				& {

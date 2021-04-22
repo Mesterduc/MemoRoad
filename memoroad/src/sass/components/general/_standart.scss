@@ -58,6 +58,11 @@ a{
   text-decoration: none;
   color: #000;
 }
+// change active link text color
+.router-link-active{
+	color: #4d9fc5;
+}
+
 
 textarea:focus, input:focus, button:focus{
   outline: none;
