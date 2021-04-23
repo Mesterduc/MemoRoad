@@ -24,12 +24,15 @@
 
 <script lang="ts">
 import { computed, defineComponent, ref, watch, defineAsyncComponent } from 'vue'
-import IndexModal from './components/ModalAccount/IndexModal.vue'
+// import IndexModal from './components/ModalAccount/IndexModal.vue'
+const IndexModal = defineAsyncComponent(
+	() => import('./components/ModalAccount/IndexModal.vue' /* webpackChunkName: "ModalSignIn" */)
+)
 
 export default defineComponent({
 	name: 'TheNavbar',
 
-	  setup(context) {
+	setup(context) {
 		// Sign in, create account and forgot password modal
 		const showModal = ref(false)
 
@@ -49,7 +52,7 @@ export default defineComponent({
 		return { showModal, closeModal, loggedIn }
 	},
 	components: {
-		IndexModal
+		IndexModal,
 	},
 })
 </script>
@@ -83,7 +86,6 @@ export default defineComponent({
 			width: 1000px;
 			justify-content: flex-end;
 			align-items: center;
-			
 
 			@media screen and (max-width: map-get( $breakpoints, medium)) {
 				& {

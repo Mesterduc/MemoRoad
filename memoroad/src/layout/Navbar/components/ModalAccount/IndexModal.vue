@@ -6,19 +6,17 @@
 			<article class="form__close-icon">
 				<img class="form__close-icon-inner" src="@/assets/icon/closebutton.svg" @click="closeModal" />
 			</article>
-			<article class="form__back-icon" v-if="!signIn">
+			<article class="form__back-icon" v-if="currentModal !== `AsyncModalSignIn`">
 				<img class="form__back-icon-inner" src="@/assets/icon/backarrow.svg" @click="changeModal" />
 			</article>
-
-			<async-modal-sign-in v-if="signIn" @forgotPassword="changeModal" @createAccount="changeModal" />
-			<async-modal-create-account v-if="createAccount" />
-			<async-modal-forgot-password v-if="forgotPassword" />
+			<component :is="currentModal" @forgotPassword="changeModal" @createAccount="changeModal"> </component>
+			
 		</article>
 	</div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, toRefs, reactive, defineAsyncComponent } from 'vue'
+import { defineComponent, ref, toRefs, reactive, defineAsyncComponent, computed } from 'vue'
 const AsyncModalSignIn = defineAsyncComponent(() => import('./ModalSignIn.vue' /* webpackChunkName: "SignIn" */))
 const AsyncModalCreateAccount = defineAsyncComponent(
 	() => import('./ModalCreateAccount.vue' /* webpackChunkName: "CreateAccount" */)
@@ -44,36 +42,24 @@ export default defineComponent({
 		//close the modal
 		function closeModal() {
 			context.emit('closeModal')
-			modal.signIn = true
-			modal.createAccount = false
-			modal.forgotPassword = false
 		}
 
 		//change modal to create account or forgot password
-		const modal = reactive({
-			signIn: true,
-			createAccount: false,
-			forgotPassword: false,
-		})
-
-		function changeModal(modalPage: String) {
-			if (modalPage === 'account') {
-				modal.signIn = false
-				modal.createAccount = true
-			} else if (modalPage === 'password') {
-				modal.signIn = false
-				modal.forgotPassword = true
-			} else {
-				modal.signIn = true
-				modal.createAccount = false
-				modal.forgotPassword = false
+		const currentModal = ref('AsyncModalSignIn')
+		function changeModal(modal: String) {
+			if (modal === 'account') {
+				return (currentModal.value = 'AsyncModalCreateAccount')
 			}
+			if (modal === 'password') {
+				return (currentModal.value = 'AsyncModalForgotPassword')
+			}
+			return (currentModal.value = 'AsyncModalSignIn')
 		}
 
 		return {
 			closeModal,
-			...toRefs(modal),
 			changeModal,
+			currentModal,
 		}
 	},
 })
