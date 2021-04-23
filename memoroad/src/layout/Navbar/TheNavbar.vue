@@ -9,7 +9,7 @@
 
 			<div class="nav__link-container">
 				<router-link class="nav__link" to="/">Home</router-link>
-				<router-link class="nav__link" to="/about">Albums</router-link>
+				<router-link class="nav__link" to="/albums">Albums</router-link>
 
 				<button type="button" v-if="loggedIn" class="nav__link--signIn">Sign out</button>
 				<button type="button" v-else class="nav__link--signIn" @click="showModal = !showModal">Sign In</button>
