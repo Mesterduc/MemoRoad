@@ -2,7 +2,7 @@
 	<index-modal :showModal="showModal" @closeModal="closeModal" />
 
 	<section id="nav">
-		<nav class="nav">
+		<nav class="nav main-layout">
 			<router-link class="nav__logo-container" to="/">
 				<img class="nav__logo" src="@/assets/MemoRoadLogo.svg" alt="logo" />
 			</router-link>
@@ -68,30 +68,22 @@ export default defineComponent({
 	top: 0;
 	background-color: white;
 
+	.main-layout{
+		justify-content: space-between;
+	}
+
 	.nav {
-		display: flex;
-		align-items: center;
-		margin: 0 auto;
-		// changes the width of the navbar
-		max-width: min(100% - 15rem);
-		@media screen and (max-width: map-get($breakpoints, medium )) {
-			& {
-				width: 100%;
-				justify-content: space-between;
-			}
-		}
 
 		&__link-container {
 			display: flex;
-			width: 1000px;
 			justify-content: flex-end;
 			align-items: center;
 
-			@media screen and (max-width: map-get( $breakpoints, medium)) {
-				& {
-					display: none;
-				}
-			}
+			// @media screen and (max-width: map-get( $breakpoints, medium)) {
+			// 	& {
+			// 		display: none;
+			// 	}
+			// }
 		}
 		&__link {
 			margin-left: 40px;
