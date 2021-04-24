@@ -70,6 +70,7 @@ export default defineComponent({
 
 	.main-layout{
 		justify-content: space-between;
+		flex-direction: row;
 	}
 
 	.nav {

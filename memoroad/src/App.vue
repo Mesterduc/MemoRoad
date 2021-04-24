@@ -4,4 +4,4 @@
 	<component :is="$route.meta.footer"></component>
 </template>
 
-<style lang="scss"></style>
+
