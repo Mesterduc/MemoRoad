@@ -26,7 +26,7 @@
 import { computed, defineComponent, ref, watch, defineAsyncComponent } from 'vue'
 // import IndexModal from './components/ModalAccount/IndexModal.vue'
 const IndexModal = defineAsyncComponent(
-	() => import('./components/ModalAccount/IndexModal.vue' /* webpackChunkName: "ModalSignIn" */)
+	() => import('./components/ModalAccount/ModalIndex.vue' /* webpackChunkName: "ModalSignIn" */)
 )
 
 export default defineComponent({
