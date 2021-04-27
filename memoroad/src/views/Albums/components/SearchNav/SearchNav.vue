@@ -15,9 +15,7 @@
 			<!-- <button type="button" class="year__number year__number--activ">2020</button> -->
 		</article>
 		<article class="dropdown">
-            <select class="dropdown__button" name="category" id="category">
-                <option class="dropdown__option" value="" v-for="(category, index) in categorys" :key="index">{{category}}</option>
-            </select>
+            <dropdown-menu :closeDropdown="closeDropdown"/>
 			<!-- <button type="button" class="dropdown__button">asd</button> -->
 		</article>
 	</section>
@@ -25,6 +23,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
+import DropdownMenu from '@/common-components/Dropdown/AppDropdown.vue'
 
 export default defineComponent({
 	name: 'SearchNav',
@@ -37,8 +36,13 @@ export default defineComponent({
 			aktivYear.value = i
 		}
 
-		return { years, categorys, aktivYear, setYearActive }
+        const closeDropdown = ref(false)
+
+		return { years, categorys, aktivYear, setYearActive, closeDropdown }
 	},
+    components: {
+        DropdownMenu
+    }
 })
 </script>
 
