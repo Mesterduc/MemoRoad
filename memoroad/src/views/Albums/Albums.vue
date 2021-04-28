@@ -5,21 +5,15 @@
 
 		<section class="album-container">
 			<article class="album">
-				<header class="album__text--header">sabbat år</header>
+				<header class="album__text album__text--header">sabbat år</header>
 				<p class="album__text"><span class="bold">Continent: </span> asd</p>
 				<p class="album__text"><span class="bold">Countries: </span>sabbat år</p>
 				<span class="album__text"><span class="bold">City: </span>sabbat år</span>
 				<div class="album__text--date-container">
-					<span class="album__text--date"> <span class="bold">From: </span>10-2-2020 </span>
+					<span class="album__text album__text--date"> <span class="bold">From: </span>10-2-2020 </span>
 					<span class="album__text--date"> <span class="bold">To: </span>23-2-2020 </span>
 				</div>
-        <img src="@/assets/icon/arrow-right.svg" alt="arrow" class="album__arrow">
-			</article>
-			<article class="album">
-				<span class="album__title">sabbat år</span>
-				<span class="album__city">sabbat år</span>
-				<span class="album__countries">sabbat år</span>
-				<span class="album__continent">sabbat år</span>
+				<img src="@/assets/icon/arrow-right.svg" alt="arrow" class="album__arrow" />
 			</article>
 		</section>
 	</main>
@@ -59,14 +53,17 @@ export default defineComponent({
 	border-radius: 15px;
 	margin-bottom: 10px;
 	position: relative;
+	cursor: pointer;
 
 	&__text {
 		text-transform: capitalize;
-    margin: 0.5rem 0;
+		margin: 0.5rem 0;
 
 		&--header {
 			font-size: 3.2rem;
 			font-weight: bold;
+			margin-bottom: 2rem;
+			text-transform: none;
 
 			&::first-letter {
 				text-transform: uppercase;
@@ -77,17 +74,17 @@ export default defineComponent({
 			right: 2rem;
 			bottom: 2rem;
 		}
-    &--date{
-      margin-left: 1.5rem;
-    }
+		&--date {
+			margin-left: 1.5rem;
+		}
 	}
 
-  &__arrow{
-    height: 40px;
-    position: absolute;
-    top: 50%;
-    right: 2rem;
-    transform: translateY(-50%);
-  }
+	&__arrow {
+		height: 40px;
+		position: absolute;
+		top: 50%;
+		right: 2rem;
+		transform: translateY(-50%);
+	}
 }
 </style>
