@@ -1,0 +1,48 @@
+{
+	"journey": [
+		{
+			"id": 471,
+			"title": "sabbat år",
+			"date": {
+				"start": "10-02-2020",
+				"end": "23-03-2020"
+			},
+			"city": ["vejle", "odense", "svendbord", "københavn"],
+			"countries": ["danmark"],
+			"continent": ["europa"]
+		},
+		{
+			"id": 471,
+			"title": "sabbat år",
+			"date": {
+				"start": "10-02-2020",
+				"end": "23-03-2020"
+			},
+			"city": ["vejle", "odense", "svendbord", "københavn"],
+			"countries": ["danmark"],
+			"continent": ["europa"]
+		},
+		{
+			"id": 471,
+			"title": "sabbat år",
+			"date": {
+				"start": "10-02-2020",
+				"end": "23-03-2020"
+			},
+			"city": ["vejle", "odense", "svendbord", "københavn"],
+			"countries": ["danmark"],
+			"continent": ["europa"]
+		},
+		{
+			"id": 471,
+			"title": "sabbat år",
+			"date": {
+				"start": "10-02-2020",
+				"end": "23-03-2020"
+			},
+			"city": ["vejle", "odense", "svendbord", "københavn"],
+			"countries": ["danmark"],
+			"continent": ["europa"]
+		}
+	]
+}

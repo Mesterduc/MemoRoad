@@ -28,7 +28,7 @@ import DropdownMenu from '@/common-components/Dropdown/AppDropdown.vue'
 export default defineComponent({
 	name: 'SearchNav',
 	setup() {
-		const years = ref(['2021', '2020', '2019', '2018', '2017', '2016'])
+		const years = ref(['2021', '2020', '2019', '2018', '2017'])
 		const categorys = ref(['All Images', 'Albums', 'Trips'])
 
 		const aktivYear = ref()
