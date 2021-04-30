@@ -1,29 +1,54 @@
 <template>
-    <section class="album-container">
-			<article class="album">
-				<header class="album__text album__text--header">sabbat år</header>
-				<p class="album__text"><span class="bold">Continent: </span> asd</p>
-				<p class="album__text"><span class="bold">Countries: </span>sabbat år</p>
-				<span class="album__text"><span class="bold">City: </span>sabbat år</span>
-				<div class="album__text--date-container">
-					<span class="album__text album__text--date"> <span class="bold">From: </span>10-2-2020 </span>
-					<span class="album__text--date"> <span class="bold">To: </span>23-2-2020 </span>
-				</div>
-				<img src="@/assets/icon/arrow-right.svg" alt="arrow" class="album__arrow" />
-			</article>
-		</section>
+	<section class="album-container">
+		<article class="album" v-for="album in albums" :key="album.id">
+			<header class="album__text album__text--header">{{ album.title }}</header>
+			<p class="album__text"><span class="bold">Continent: </span> {{ arrayToSting(album.continent) }}</p>
+			<p class="album__text"><span class="bold">Countries: </span>{{ arrayToSting(album.countries) }}</p>
+			<span class="album__text"><span class="bold">City: </span>{{ arrayToSting(album.city) }}</span>
+			<div class="album__text--date-container">
+				<span class="album__text album__text--date">
+					<span class="bold">From: </span>{{ album.date.start }}
+				</span>
+				<span class="album__text--date"> <span class="bold">To: </span>{{ album.date.end }}</span>
+			</div>
+			<img src="@/assets/icon/arrow-right.svg" alt="arrow" class="album__arrow" />
+		</article>
+	</section>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
-    setup() {
-        
-    },
+	setup() {
+		const albums = ref([])
+		const error = ref(null)
+
+		const load = async () => {
+			try {
+				let data = await fetch('../../test.json')
+				if (!data.ok) {
+					throw Error('no data available')
+				}
+
+				albums.value = await data.json().then((data) => data.journey)
+			} catch (err) {
+				error.value = err.message
+			}
+		}
+		load()
+
+		function arrayToSting(arr) {
+			if (arr.length > 3) {
+				return arr.join(', ') + '...'
+			}
+			return arr.join(', ')
+		}
+
+		return { albums, arrayToSting }
+	},
 })
 </script>
-
 
 <style lang="scss" scoped>
 .album {
@@ -72,7 +97,6 @@ export default defineComponent({
 		top: 50%;
 		right: 2rem;
 		transform: translateY(-50%);
-        
 	}
 }
 </style>
