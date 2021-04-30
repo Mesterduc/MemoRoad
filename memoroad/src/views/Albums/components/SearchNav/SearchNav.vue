@@ -11,8 +11,6 @@
 			>
 				{{ year }}
 			</button>
-				<!-- :class="{ 'year__number--activ': i === aktivYear }" -->
-			<!-- <button type="button" class="year__number year__number--activ">2020</button> -->
 		</article>
 		<article class="dropdown">
             <dropdown-menu :closeDropdown="closeDropdown"/>
@@ -28,7 +26,7 @@ import DropdownMenu from '@/common-components/Dropdown/AppDropdown.vue'
 export default defineComponent({
 	name: 'SearchNav',
 	setup() {
-		const years = ref(['2021', '2020', '2019', '2018', '2017'])
+		const years = ref(['2021', '2020', '2019', '2018', '2017', 'All'])
 		const categorys = ref(['All Images', 'Albums', 'Trips'])
 
 		const aktivYear = ref()
@@ -54,6 +52,7 @@ export default defineComponent({
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+    
 
 	@media screen and (max-width: map-get( $breakpoints, medium)) {
 		& {
@@ -79,6 +78,7 @@ export default defineComponent({
 		border-radius: 20px;
 		font-size: 1.6rem;
 		font-weight: 600;
+        cursor: pointer;
 
 		&:hover {
 			color: white;
@@ -88,6 +88,7 @@ export default defineComponent({
 		&--activ {
 			color: white;
 			background: black;
+            cursor: default;
 		}
 	}
 }
