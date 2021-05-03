@@ -1,4 +1,6 @@
 <template>
+	<!-- <h1>{{ sortAlbums }}</h1>
+	<h1>asd</h1> -->
 	<section class="album-container">
 		<article class="album" v-for="album in albums" :key="album.id">
 			<header class="album__text album__text--header">{{ album.title }}</header>
@@ -17,7 +19,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, computed } from 'vue'
 
 export default defineComponent({
 	setup() {
@@ -38,14 +40,36 @@ export default defineComponent({
 		}
 		load()
 
-		function arrayToSting(arr) {
+		function arrayToSting(arr: Array<String>) {
 			if (arr.length > 3) {
 				return arr.join(', ') + '...'
 			}
 			return arr.join(', ')
 		}
 
-		return { albums, arrayToSting }
+		const newestAlbums = computed(() => {
+            // find ud af hvordan typescript fungere
+            // todo: giv ordenlig typer
+			return albums.value.sort((a: any, b: any): number => {
+				let mad: any = new Date(a.date.start)
+				let mad2: any = new Date(b.date.start)
+				return mad2 -mad 
+			})
+		})
+		const oldestAlbums = computed(() => {
+            // find ud af hvordan typescript fungere
+            // todo: giv ordenlig typer
+			return albums.value.sort((a: any, b: any): number => {
+				let mad: any = new Date(a.date.start)
+				let mad2: any = new Date(b.date.start)
+				return mad-mad2  
+			})
+		})
+        function yearAlbums(year: number) {
+            return "asd"
+        }
+
+		return { albums, arrayToSting, newestAlbums, oldestAlbums, yearAlbums  }
 	},
 })
 </script>
