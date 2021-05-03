@@ -31,7 +31,7 @@ export default defineComponent({
 			isOpen.value = !isOpen.value
 		}
 		function getValue(e: any) {
-			buttonValue.value = e.target.innerHTML
+			buttonValue.value = e.target.innerText
 		}
 
 		return { isOpen, toggle, buttonValue, getValue }
