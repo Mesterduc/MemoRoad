@@ -13,7 +13,7 @@
 			</button>
 		</article>
 		<article class="dropdown">
-            <dropdown-menu :closeDropdown="closeDropdown"/>
+            <dropdown-menu :closeDropdown="closeDropdown"  @sortAlbums="sortAlbums"/>
 			<!-- <button type="button" class="dropdown__button">asd</button> -->
 		</article>
 	</section>
@@ -25,7 +25,7 @@ import DropdownMenu from '@/common-components/Dropdown/AppDropdown.vue'
 
 export default defineComponent({
 	name: 'SearchNav',
-	setup() {
+	setup(props, context) {
 		const years = ref(['2021', '2020', '2019', '2018', '2017', 'All'])
 		const categorys = ref(['All Images', 'Albums', 'Trips'])
 
@@ -36,8 +36,15 @@ export default defineComponent({
 
         const closeDropdown = ref(false)
 
-		return { years, categorys, aktivYear, setYearActive, closeDropdown }
+        function sortAlbums(e: any){
+            // console.log(e)
+            context.emit("sortAlbums", e)
+        }
+
+		return { years, categorys, aktivYear, setYearActive, closeDropdown, sortAlbums }
 	},
+    
+    emits: ["sortAlbums"],
     components: {
         DropdownMenu
     }

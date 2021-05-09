@@ -1,8 +1,9 @@
 <template>
 	<!-- <h1>{{ sortAlbums }}</h1>
 	<h1>asd</h1> -->
+	<h1 @click="mad2">{{ hej2 }}</h1>
 	<section class="album-container">
-		<article class="album" v-for="album in albums" :key="album.id">
+		<article class="album" v-for="album in albums" :key="album.id" @click="mad">
 			<header class="album__text album__text--header">{{ album.title }}</header>
 			<p class="album__text"><span class="bold">Continent: </span> {{ arrayToSting(album.continent) }}</p>
 			<p class="album__text"><span class="bold">Countries: </span>{{ arrayToSting(album.countries) }}</p>
@@ -19,12 +20,36 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed } from 'vue'
+import { defineComponent, ref, computed, watch } from 'vue'
 
 export default defineComponent({
-	setup() {
+    name: "AppAlbum",
+    props: ["hej2"],
+	setup(props) {
 		const albums = ref([])
+		const asd = ref("")
 		const error = ref(null)
+        console.log(props.hej2)
+        asd.value = props.hej2
+        function mad() {
+
+               oldestAlbums.value
+            
+        }
+        function mad2() {
+
+                newestAlbums.value
+            
+        }
+    watch(() => props.hej2, (cur, old) => {
+        if(cur == "oldest"){
+           return oldestAlbums.value
+        }
+        if(cur == "latest"){
+          return  newestAlbums.value
+        }
+        load()
+    })
 
 		const load = async () => {
 			try {
@@ -53,7 +78,7 @@ export default defineComponent({
 			return albums.value.sort((a: any, b: any): number => {
 				let mad: any = new Date(a.date.start)
 				let mad2: any = new Date(b.date.start)
-				return mad2 -mad 
+				return mad2 -mad
 			})
 		})
 		const oldestAlbums = computed(() => {
@@ -62,14 +87,14 @@ export default defineComponent({
 			return albums.value.sort((a: any, b: any): number => {
 				let mad: any = new Date(a.date.start)
 				let mad2: any = new Date(b.date.start)
-				return mad-mad2  
+				return mad-mad2
 			})
 		})
         function yearAlbums(year: number) {
             return "asd"
         }
 
-		return { albums, arrayToSting, newestAlbums, oldestAlbums, yearAlbums  }
+		return { albums, arrayToSting, newestAlbums, oldestAlbums, yearAlbums, mad, mad2, asd }
 	},
 })
 </script>

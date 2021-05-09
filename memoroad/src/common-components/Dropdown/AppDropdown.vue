@@ -8,7 +8,7 @@
 				></path>
 			</svg>
 		</button>
-		<article class="dropdown-item" v-if="isOpen" @click="toggle">
+		<article class="dropdown-item" v-if="isOpen" @click="sortAlbums" >
 			<span class="dropdown-item__value" @click="getValue">show all</span>
 			<span class="dropdown-item__value" @click="getValue">latest</span>
 			<span class="dropdown-item__value" @click="getValue">oldest</span>
@@ -23,19 +23,31 @@ import dropdownItem from './AppDropdownItem.vue'
 
 export default defineComponent({
 	name: 'Dropdown',
-	setup(context) {
+    // emits:['sortAlbums'],
+	setup(props, context) {
 		const isOpen = ref(false)
 		const buttonValue = ref('show all')
+		const buttonValue2 = ref('show allasd')
 
 		function toggle() {
 			isOpen.value = !isOpen.value
 		}
 		function getValue(e: any) {
-			buttonValue.value = e.target.innerText
+            buttonValue.value = e.target.innerText
 		}
+        
+            
+        function sortAlbums(){
+            // context.emit(buttonValue2)
+            isOpen.value = !isOpen.value
+            // context.emit('sortAlbums', buttonValue.value)
+            context.emit('sortAlbums', buttonValue.value)
+        // }
+        }
 
-		return { isOpen, toggle, buttonValue, getValue }
+		return { isOpen, toggle, buttonValue, getValue,sortAlbums ,buttonValue2}
 	},
+    
 	props: {},
 	components: {},
 })
