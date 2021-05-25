@@ -43,9 +43,11 @@ export default defineComponent({
         }
     watch(() => props.hej2, (cur, old) => {
         if(cur == "oldest"){
+			console.log(cur)
            return oldestAlbums.value
         }
         if(cur == "latest"){
+			console.log(cur)
           return  newestAlbums.value
         }
         load()
@@ -59,6 +61,7 @@ export default defineComponent({
 				}
 
 				albums.value = await data.json().then((data) => data.journey)
+				
 			} catch (err) {
 				error.value = err.message
 			}
@@ -75,18 +78,38 @@ export default defineComponent({
 		const newestAlbums = computed(() => {
             // find ud af hvordan typescript fungere
             // todo: giv ordenlig typer
-			return albums.value.sort((a: any, b: any): number => {
-				let mad: any = new Date(a.date.start)
-				let mad2: any = new Date(b.date.start)
-				return mad2 -mad
+			let lol:  any = albums.value.sort((a: any, b: any): number => {
+				// let mad: any = new Date(a.date.start)
+				let mad: any = a.id
+				// let mad2: any = new Date(b.date.start)
+				let mad2: any = b.id
+				return mad2 - mad
 			})
+			console.log(lol)
+			return lol
+			// return albums.value.sort((a: any, b: any): number => {
+			// 	// let mad: any = new Date(a.date.start)
+			// 	let mad: any = a.title
+			// 	// let mad2: any = new Date(b.date.start)
+			// 	let mad2: any = b.title
+			// 	return mad2 - mad
+			// })
 		})
+		// const oldestAlbums = computed(() => {
+        //     // find ud af hvordan typescript fungere
+        //     // todo: giv ordenlig typer
+		// 	return albums.value.sort((a: any, b: any): number => {
+		// 		let mad: any = new Date(a.date.start)
+		// 		let mad2: any = new Date(b.date.start)
+		// 		return mad-mad2
+		// 	})
+		// })
 		const oldestAlbums = computed(() => {
             // find ud af hvordan typescript fungere
             // todo: giv ordenlig typer
 			return albums.value.sort((a: any, b: any): number => {
-				let mad: any = new Date(a.date.start)
-				let mad2: any = new Date(b.date.start)
+				let mad: any = a.id
+				let mad2: any = b.id
 				return mad-mad2
 			})
 		})
