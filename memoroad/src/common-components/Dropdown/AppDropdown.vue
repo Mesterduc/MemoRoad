@@ -23,6 +23,7 @@ import dropdownItem from './AppDropdownItem.vue'
 
 export default defineComponent({
 	name: 'Dropdown',
+    // emits:['sortAlbums'],
 	setup(props, context) {
 		const isOpen = ref(false)
 		const buttonValue = ref('show all')
@@ -37,8 +38,11 @@ export default defineComponent({
         
             
         function sortAlbums(){
+            // context.emit(buttonValue2)
             isOpen.value = !isOpen.value
+            // context.emit('sortAlbums', buttonValue.value)
             context.emit('sortAlbums', buttonValue.value)
+        // }
         }
 
 		return { isOpen, toggle, buttonValue, getValue,sortAlbums ,buttonValue2}

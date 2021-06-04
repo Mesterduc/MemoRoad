@@ -2,11 +2,6 @@
 	<!-- <h1>{{ sortAlbums }}</h1>
 	<h1>asd</h1> -->
 	<h1 @click="mad2">{{ hej2 }}</h1>
-	<div v-for="test in dataAlbum" :key="test.id">
-		<!-- <div v-for="test2 in test.journey" :key="test.id">
-		</div> -->
-			<span>{{ test }}</span>
-	</div>
 	<section class="album-container">
 		<article class="album" v-for="album in albums" :key="album.id" @click="mad">
 			<header class="album__text album__text--header">{{ album.title }}</header>
@@ -26,45 +21,37 @@
 
 <script lang="ts">
 import { defineComponent, ref, computed, watch } from 'vue'
-import getAlbums from '@/composables/fetchAlbum.ts'
-import albumInterface from '@/types/albumType.ts'
 
 export default defineComponent({
-	name: 'AppAlbum',
-	props: ['hej2'],
-	async setup(props) {
+    name: "AppAlbum",
+    props: ["hej2"],
+	setup(props) {
 		const albums = ref([])
-		const asd = ref('')
+		const asd = ref("")
 		const error = ref(null)
-		console.log(props.hej2)
-		asd.value = props.hej2
-		function mad() {
-			oldestAlbums.value
-		}
-		function mad2() {
-			newestAlbums.value
-		}
-		watch(
-			() => props.hej2,
-			(cur, old) => {
-				if (cur == 'oldest') {
-					console.log(cur)
-					return oldestAlbums.value
-				}
-				if (cur == 'latest') {
-					console.log(cur)
-					return newestAlbums.value
-				}
-				load()
-			}
-		)
-		// const testFetch =
-		const dataAlbum = ref(await getAlbums())
+        console.log(props.hej2)
+        asd.value = props.hej2
+        function mad() {
 
-		// dataAlbum.value = await getAlbums()
-		console.log(dataAlbum)
-		// console.log(dataAlbum.value.data)
-		// console.log(testFetch.data)
+               oldestAlbums.value
+            
+        }
+        function mad2() {
+
+                newestAlbums.value
+            
+        }
+    watch(() => props.hej2, (cur, old) => {
+        if(cur == "oldest"){
+			console.log(cur)
+           return oldestAlbums.value
+        }
+        if(cur == "latest"){
+			console.log(cur)
+          return  newestAlbums.value
+        }
+        load()
+    })
 
 		const load = async () => {
 			try {
@@ -73,7 +60,8 @@ export default defineComponent({
 					throw Error('no data available')
 				}
 
-				albums.value = await data.json()
+				albums.value = await data.json().then((data) => data.journey)
+				
 			} catch (err) {
 				error.value = err.message
 			}
@@ -88,9 +76,9 @@ export default defineComponent({
 		}
 
 		const newestAlbums = computed(() => {
-			// find ud af hvordan typescript fungere
-			// todo: giv ordenlig typer
-			let lol: any = albums.value.sort((a: any, b: any): number => {
+            // find ud af hvordan typescript fungere
+            // todo: giv ordenlig typer
+			let lol:  any = albums.value.sort((a: any, b: any): number => {
 				// let mad: any = new Date(a.date.start)
 				let mad: any = a.id
 				// let mad2: any = new Date(b.date.start)
@@ -108,8 +96,8 @@ export default defineComponent({
 			// })
 		})
 		// const oldestAlbums = computed(() => {
-		//     // find ud af hvordan typescript fungere
-		//     // todo: giv ordenlig typer
+        //     // find ud af hvordan typescript fungere
+        //     // todo: giv ordenlig typer
 		// 	return albums.value.sort((a: any, b: any): number => {
 		// 		let mad: any = new Date(a.date.start)
 		// 		let mad2: any = new Date(b.date.start)
@@ -117,19 +105,19 @@ export default defineComponent({
 		// 	})
 		// })
 		const oldestAlbums = computed(() => {
-			// find ud af hvordan typescript fungere
-			// todo: giv ordenlig typer
+            // find ud af hvordan typescript fungere
+            // todo: giv ordenlig typer
 			return albums.value.sort((a: any, b: any): number => {
 				let mad: any = a.id
 				let mad2: any = b.id
-				return mad - mad2
+				return mad-mad2
 			})
 		})
-		function yearAlbums(year: number) {
-			return 'asd'
-		}
+        function yearAlbums(year: number) {
+            return "asd"
+        }
 
-		return { albums, arrayToSting, newestAlbums, oldestAlbums, yearAlbums, mad, mad2, asd, dataAlbum }
+		return { albums, arrayToSting, newestAlbums, oldestAlbums, yearAlbums, mad, mad2, asd }
 	},
 })
 </script>

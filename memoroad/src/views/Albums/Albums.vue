@@ -2,12 +2,8 @@
 	<main class="albums main-layout">
 		<h1 class="albums__header container-layout">Albums</h1>
 		<search-nav @sortAlbums="hej" />
-		<Suspense>
-			<template #default>
-				<app-album :hej2="hej2" />
-			</template>
-			<template #fallback></template>
-		</Suspense>
+
+		<app-album :hej2="hej2"/>
 	</main>
 </template>
 <script>
@@ -19,24 +15,26 @@ export default defineComponent({
 	name: 'Albums',
 	components: {
 		SearchNav,
-		AppAlbum,
+    AppAlbum
 	},
-	setup() {
-		const hej2 = ref('asdoooo')
+  setup() {
+  const hej2 = ref("asdoooo")
 
-		function hej(e) {
-			hej2.value = e
-			// console.log(e.value)
-			// console.log(hej2.value)
-			return e
-		}
-		return { hej, hej2 }
-	},
-	props: {
-		hej: {
-			type: String,
-		},
-	},
+    function hej(e){
+      hej2.value = e
+      // console.log(e.value)
+      // console.log(hej2.value)
+      return e
+
+    }
+    return {hej,  hej2}
+
+  },
+  props:{
+        hej: {
+            type: String
+        }
+    },
 })
 </script>
 
@@ -49,4 +47,5 @@ export default defineComponent({
 		display: block;
 	}
 }
+
 </style>
