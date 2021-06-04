@@ -21,12 +21,13 @@
 
 <script lang="ts">
 import { defineComponent, ref, computed, watch } from 'vue'
+import AlbumType from '../../../../types/AlbumType'
 
 export default defineComponent({
     name: "AppAlbum",
     props: ["hej2"],
 	setup(props) {
-		const albums = ref([])
+		const albums = ref<AlbumType[]>([])
 		const asd = ref("")
 		const error = ref(null)
         console.log(props.hej2)
